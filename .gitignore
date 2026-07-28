@@ -1,0 +1,115 @@
+# =====================================
+# SOSpiro - Monorepo
+# =====================================
+
+# -------------------------
+# Sistema Operativo
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------
+# VSCode
+# -------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# -------------------------
+# JetBrains
+# -------------------------
+.idea/
+*.iml
+
+# -------------------------
+# Logs
+# -------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# -------------------------
+# Variables de entorno
+# -------------------------
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Node
+# -------------------------
+node_modules/
+npm-cache/
+.pnpm-store/
+.yarn/
+dist/
+coverage/
+
+# Vite
+.vite/
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+*.egg-info/
+.eggs/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.venv/
+venv/
+ENV/
+env/
+
+# -------------------------
+# FastAPI
+# -------------------------
+*.sqlite3
+
+# -------------------------
+# Docker
+# -------------------------
+docker-data/
+postgres-data/
+
+# -------------------------
+# PostgreSQL
+# -------------------------
+pgdata/
+
+# -------------------------
+# Build
+# -------------------------
+build/
+out/
+
+# -------------------------
+# Cache
+# -------------------------
+.cache/
+.tmp/
+temp/
+
+# -------------------------
+# Archivos del editor
+# -------------------------
+*.swp
+*.swo
+*~
+
+# -------------------------
+# Certificados locales
+# -------------------------
+*.pem
+*.key
+*.crt
