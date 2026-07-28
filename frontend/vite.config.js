@@ -23,8 +23,8 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           // Necesitarás crear estos iconos después en la carpeta /public
-          { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icon-512.png', sizes: '512x512', type: 'image/png' }
+          { src: '/sospiroIcon.png', sizes: '192x192', type: 'image/png' },
+          { src: '/sospiroIcon.png', sizes: '512x512', type: 'image/png' }
         ]
       }
     })
