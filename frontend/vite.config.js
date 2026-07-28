@@ -11,7 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         // Aseguramos que el audio se guarde en caché para modo offline
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,mp3}'] 
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,mp3}'],
+        maximumFileSizeToCacheInBytes: 10485760, // Aumenta el límite a 10 MB
       },
       manifest: {
         name: 'SOSpiro',

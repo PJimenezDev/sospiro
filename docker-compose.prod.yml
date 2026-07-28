@@ -1,0 +1,41 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80" # Nginx corre internamente en el puerto 80, lo mapeamos al 8080 de tu PC
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://pausa_user:pausa_password@db:5432/pausa_db
+      - FRONTEND_URL=http://localhost:8080
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: pausa_user
+      POSTGRES_PASSWORD: pausa_password
+      POSTGRES_DB: pausa_db
+    volumes:
+      - postgres_data_prod:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_prod:

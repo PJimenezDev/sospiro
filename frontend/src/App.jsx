@@ -24,10 +24,20 @@ function App() {
 
       // Si el usuario aceptó, enviamos un log anónimo al backend
       if (optInLog) {
-        fetch('http://localhost:8000/api/logs', {
+        // Generar o recuperar UUID anónimo del localStorage
+        let userId = localStorage.getItem('sospiro_uuid');
+        if (!userId) {
+          userId = crypto.randomUUID();
+          localStorage.setItem('sospiro_uuid', userId);
+        }
+
+        fetch(`${import.meta.env.VITE_API_URL}/logs`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ timestamp: new Date().toISOString() })
+          body: JSON.stringify({ 
+            user_id: userId,
+            timestamp: new Date().toISOString() 
+          })
         }).catch(() => console.log('Modo offline: Log no enviado'));
       }
     } else {
